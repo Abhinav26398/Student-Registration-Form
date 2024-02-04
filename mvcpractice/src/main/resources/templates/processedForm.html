@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Output-Form</title>
+</head>
+<body>
+   <h3>Hey Please Verify Once</h3>
+   Student Name : <span th:text="${student.firstName}+' '+${student.lastName}"></span>
+   <br><br>
+   Country      : <span th:text="${student.country}"></span>
+   <br><br>
+   Favorite Programming Language : <span th:text="${student.favoriteLanguage}"></span>
+   <br><br>
+   Favorite Operating Sysytem : <span th:text="${student.favoriteSystem}"></span>
+</body>
+</html>
