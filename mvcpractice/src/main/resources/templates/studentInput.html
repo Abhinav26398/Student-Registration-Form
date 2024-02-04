@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentInput</title>
+</head>
+<body>
+<h3>Hey please fill this form</h3>
+<br><br>
+  <form th:action="@{/processForm}" th:object="${student}" method="post">
+      First Name : <input type="text" th:field="*{firstName}">
+      <br><br>
+      Last Name  : <input type="text" th:field="*{lastName}">
+      <br><br>
+      Country    :
+      <select th:field="*{country}">
+<!--          <option th:value="Iran">Iran</option>-->
+<!--          <option th:value="China">China</option>-->
+<!--          <option th:value="Bhutan">Bhutan</option>-->
+<!--          <option th:value="Nepal">Nepal</option>-->
+          <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
+
+                </select>
+
+      <br><br>
+      Favorite Programming Language :
+<!--      <input type="radio" th:field="*{favoriteLanguage}" th:value="GO">GO</input>-->
+<!--      <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>-->
+<!--      <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>-->
+          <input type="radio" th:field="*{favoriteLanguage}"
+                               th:each="tempLang : ${languages}"
+                               th:value="${tempLang}" th:text="${tempLang}">
+      <br><br>
+      Favorite Operating System :
+<!--      <input type="checkbox" th:field="*{favoriteSystem}" th:value="Linux">Linux</input>-->
+<!--      <input type="checkbox" th:field="*{favoriteSystem}" th:value="Android">Android</input>-->
+<!--      <input type="checkbox" th:field="*{favoriteSystem}" th:value="Window">Window</input>-->
+      <input type="checkbox" th:field="*{favoriteSystem}"
+                             th:each="tempos : ${favos}"
+                             th:value="${tempos}" th:text="${tempos}">
+      <br><br>
+      <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
